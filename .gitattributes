@@ -1,0 +1,2 @@
+# 统一 Go 源码为 LF，避免编辑器写回 CRLF 后 gofmt 反复报未格式化
+*.go text eol=lf

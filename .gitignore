@@ -1,0 +1,28 @@
+# 编译产物
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# 测试与覆盖率产物
+*.test
+*.out
+coverage.html
+
+# 依赖目录
+vendor/
+
+# 多模块工作区文件（本机私有）
+go.work
+go.work.sum
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 操作系统
+.DS_Store
+Thumbs.db
