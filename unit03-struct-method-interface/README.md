@@ -12,13 +12,15 @@ struct、method、interface、method set、embedding，以及用 interface 做�
 | [02-value-vs-pointer-receiver](02-value-vs-pointer-receiver/) | 📦 归档导入 | 值接收者拿到的是副本：`SetAgeByValue(50)` 后 `Age` 仍是 22；指针接收者改原值：`SetAge(99)` 后变 99 |
 | [03-interface-method-set](03-interface-method-set/) | 📦 归档导入 | method set 规则：**值接收者 → `T` 和 `*T` 都实现接口；指针接收者 → 只有 `*T` 实现接口，`T` 不实现**。`dog.Speak()` 能调是自动取地址；`var s Speaker = dog` 会编译失败 |
 | [04-embedding-composition](04-embedding-composition/) | 📦 归档导入 | embedding 是组合不是 Java 的 `extends`；被嵌入类型的方法会提升，`service.Log(...)`、`car.Start()` 可直接调用 |
-| [05-repository-service-di](05-repository-service-di/) | 🚧 进行中 | `UserService` 只依赖 `UserRepository` 接口，不知道具体类型；`NewUserService(repo)` 就是最基础的显式依赖注入。错误用 `fmt.Errorf("get user %d: %w", id, err)` 包装后，`errors.Is` 仍能匹配 `ErrUserNotFound` |
+| [05-repository-service-di](05-repository-service-di/) | 🚧 进行中 | `UserService` 只依赖 `UserRepository` 接口，不知道具体类型；`NewUserService(repo)` 就是最基础的显式依赖注入。错误用 `fmt.Errorf("get user %d: %w", id, err)` 包装后，`errors.Is` 仍能匹配 `ErrUserNotFound`。加 mock 时踩到的坑：`repo := NewMemoryUserRepository()` 推断出的是**具体类型** `*MemoryUserRepository`，不能再赋 `*MockUserRepository` 给它 |
 
 ## 关于 05
 
 归档里这个目录原名 `05-repository-service-di-IN_PROGRESS`，因为「自己从零写 + 运行 + Review + mock」的完整练习流程还没走完。目录名按本仓库命名规则改成小写 kebab-case，**进行中**的状态改记在这里，不写进目录名。代码本身是完整可运行的。
 
-尚未做：从零独立实现一遍、mock/fake repository 练习。
+2026-09-18：`MockUserRepository` 由本人独立编写并经 Review 修正（详见该目录 `notes.md` 的「Review 记录」），mock 练习已完成。
+
+尚未做：从零独立实现一遍完整的 repository + service。
 
 ## 与 unit02 的关系
 
