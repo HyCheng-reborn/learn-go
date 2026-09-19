@@ -9,6 +9,7 @@
 | 目录 | 状态 | 一句话结论 |
 |---|---|---|
 | [01-package-import-export](01-package-import-export/) | ✅ | 同一个 module 内按 `learn-go/<unit>/<example>/<pkg>` 的完整 import path 引用子包；`service` 包用到别的包的类型必须显式 import 并加包名前缀（`repository.UserRepository`、`*model.User`），否则编译期 `undefined` |
+| [02-package-design-and-internal](02-package-design-and-internal/)（2026-09-19） | ✅ | 按业务组织：model/repository/service 合进一个 `user` package（同包多文件互引不需要包名前缀）；`internal` 是 Go 工具链真正执行的访问限制（越界 import 报 `use of internal package not allowed`，已实验验证），`cmd/` 只是工程约定不是限制；接口按消费者需求设计、保持小（`Repository` 只要 `FindByID`，实现可以多于接口如 `Count`）；命名避免 stutter（`user.Service` 而非 `user.UserService`）；局部变量不能和包名撞（`usr` 而非 `user`，否则遮蔽包名编译失败） |
 
 ## package 要点速查
 
