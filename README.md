@@ -17,6 +17,7 @@ Go 语言学习项目。每个知识点是一个独立目录，内含一个可�
 | [unit01-basic](unit01-basic/README.md) | ✅ | 变量与基本类型、错误处理（哨兵错误 + `errors.Is`）、控制流与函数、string / byte / rune |
 | [unit02-collections](unit02-collections/README.md) | ✅ | slice 底层数组与 append 扩容、接口与方法接收者、array 值复制、map 与 comma-ok、指针基础 |
 | [unit03-struct-method-interface](unit03-struct-method-interface/README.md) | 🚧 | struct 与构造函数式函数、值 / 指针接收者、interface 与 method set、embedding 组合、repository→service 依赖注入（进行中） |
+| [unit04-packages-and-project-structure](unit04-packages-and-project-structure/README.md) | 🚧 | 单 main.go 拆分为 model / repository / service 多包：import 路径、包名限定、大小写导出规则、跨包装配（01 已完成） |
 
 每个 unit 的 README 里有逐条知识点表和「一句话结论」。
 
