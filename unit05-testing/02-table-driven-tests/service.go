@@ -6,7 +6,7 @@ import (
 )
 
 var ErrUserNotFound = errors.New("user not found")
-var ErrDataBase = errors.New("database error")
+var ErrDatabase = errors.New("database error")
 
 type User struct {
 	ID   int64
